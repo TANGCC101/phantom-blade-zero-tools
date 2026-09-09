@@ -1,0 +1,2 @@
+import {T} from './Language';
+import Link from 'next/link'; import type { Reliability } from '../lib/types'; import { SourceNote } from './SourceNote'; export function EntityCard({item,kind}:{item:Reliability&{slug:string;name:string;summary:string};kind:'weapons'|'bosses'}){return <article className="panel"><h3 className="text-lg font-semibold"><Link href={`/${kind}/${item.slug}`}><T text={item.name}/></Link></h3><p className="mt-2 text-stone-300"><T text={item.summary}/></p><SourceNote item={item}/></article>}

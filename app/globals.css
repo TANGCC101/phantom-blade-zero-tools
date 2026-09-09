@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root{color-scheme:dark;--ink:#090a0b;--surface:#131416;--bone:#e4dfd5;--fog:#a9adb0;--blood:#852e32;--gold:#c3ad80}
+body{background:var(--ink);color:var(--bone);font-family:Arial,"Noto Sans","Microsoft YaHei",sans-serif}
+a{color:var(--bone);transition:color .15s}a:hover{color:var(--gold)}
+.panel{border:1px solid #343538;background:linear-gradient(135deg,#191a1ce6,#101113);border-radius:3px;padding:1.25rem}
+a.panel:hover{border-color:#796554}
+button{cursor:pointer}button:disabled{opacity:.5;cursor:not-allowed}
+:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+.skip-link{position:absolute;left:1rem;top:-5rem;z-index:50;background:#111;padding:1rem}.skip-link:focus{top:1rem}
+.hero{isolation:isolate;border-radius:3px!important;background:radial-gradient(ellipse at 82% 30%,#424b5138,transparent 60%),radial-gradient(ellipse at 88% 85%,#6b232530,transparent 50%),linear-gradient(115deg,#121416,#08090b);border-color:#3b3b3d}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;opacity:.38;background:repeating-linear-gradient(112deg,transparent 0 80px,#ffffff07 81px,transparent 83px 170px);pointer-events:none}
+.hero h1{font-family:Georgia,"Songti SC","Noto Serif CJK SC",serif;font-weight:500;letter-spacing:-.025em;text-shadow:0 3px 22px #0008}
+.moon{position:absolute;width:29rem;height:29rem;border:1px solid #93979755;border-radius:50%;right:-10rem;top:2rem;opacity:.65;box-shadow:inset -8px 0 0 #7f29294d,0 0 90px #959ea60c;transform:rotate(-28deg);pointer-events:none}
+.moon::before{content:"";position:absolute;left:48%;top:-12%;height:125%;width:2px;background:linear-gradient(transparent,#d2d4d2b3,#943b40,transparent);box-shadow:4px 0 16px #a9454526}
+.button-primary{display:inline-block;border:1px solid #a24c4b;border-radius:2px;background:linear-gradient(120deg,#873334,#682427);padding:.75rem 1.25rem;color:#f5eee4!important}
+.button-primary:hover{background:#9b3c3f;border-color:#c07970}
+button.bg-gold{background:var(--blood);border:1px solid #a24c4b;color:#f5eee4}
+h1,h2,h3{overflow-wrap:anywhere}input,textarea,select{max-width:100%}
+input,textarea,select{accent-color:var(--blood)}
+.language-control{flex-shrink:0}
+.language-control select{background:#111216;border-color:#3c3c43;color:var(--bone);min-width:150px}
+.language-control option{background:#15161b;color:var(--bone)}
+@media(min-width:1024px){.moon{right:-2rem;top:3rem}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}

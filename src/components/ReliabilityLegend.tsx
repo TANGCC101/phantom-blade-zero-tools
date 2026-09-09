@@ -1,0 +1,2 @@
+import {T} from './Language';
+export function ReliabilityLegend(){return <aside className="panel text-sm"><h2 className="text-base text-gold"><T text="Data Reliability Legend"/></h2><p className="mt-2 text-stone-300"><T text="Source:"/><span className="text-jade"><T text="Official"/></span><T text="= developer/platform · Community = independent press or players."/></p><p className="mt-2 text-stone-400"><T text="Stage: Pre-release = announcement/demo information · Verified = checked against the released game. These dimensions are independent."/></p></aside>}
