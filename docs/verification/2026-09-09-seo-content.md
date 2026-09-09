@@ -31,4 +31,17 @@ Test-first evidence: canonical normalization test failed on missing trailing sla
 
 Independent read-only review identified one P2 issue in the export checker: mixed-case origins with explicit default port were compared literally. Reproduced the failure, normalized the checker origin, and reran it successfully using `https://PHANTOM-BLADE-ZERO-TOOLS.PAGES.DEV:443`. Metadata regression now also covers surrounding whitespace, hostname case and default port. No other release blockers reported.
 
-The browser control inventory failed with `nodeRepl.fetch request failed`, returning no connected browsers. Visual browser QA and authenticated Google/Bing indexing checks could not be completed in this session. Public HTTP delivery checks and release result will be recorded after pushing through the existing Pages workflow. Public availability does not establish search engine indexing.
+The browser control inventory failed with `nodeRepl.fetch request failed`, returning no connected browsers. Visual browser QA and authenticated Google/Bing indexing checks could not be completed in this session. Public availability does not establish search engine indexing.
+
+## Release result
+
+Implementation commit `1e0ee1d` was pushed to `origin/main` using the existing Pages Git integration. On 2026-09-09 at approximately 21:22 Asia/Shanghai, public HTTP verification confirmed:
+
+- Production sitemap changed from 10 to 16 URLs.
+- All 16 sitemap pages returned HTTP 200 with a canonical matching the requested URL.
+- All six guide detail pages contained English article markup and the visible source/review-date section.
+- robots.txt returned HTTP 200 and declared the production sitemap.
+
+Entry point: https://phantom-blade-zero-tools.pages.dev/guides/
+
+Cloudflare dashboard status was not inspected; delivery is verified by the actual public pages. No deployment configuration was changed. Follow-up: inspect sitemap processing and homepage indexing in the already configured Google/Bing properties once browser access is available; do not claim indexing based solely on HTTP responses.
