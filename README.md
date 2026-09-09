@@ -4,7 +4,7 @@ Multilingual game tools and SEO reference website for Phantom Blade Zero.
 
 ## Project status
 
-Local V1 implementation: browser-saved build notes, share previews, validated JSON backups, launch/progress tracker, sourced reference pages, filters and SEO metadata. The site is not deployed. Current content is a selective pre-release reference, not a complete item or boss database.
+Local V1 implementation: browser-saved build notes, share previews, validated JSON backups, launch/progress tracker, sourced reference pages, filters and SEO metadata. The site is deployed at https://phantom-blade-zero-tools.pages.dev/. Current content is a selective pre-release reference, not a complete item or boss database.
 
 Canonical project directory: `E:\Ai项目\Phantom Blade Zero Tools`.
 
@@ -43,6 +43,12 @@ Use Node.js 22 LTS or newer. Install the locked dependencies with `npm ci`.
 - `npm run typecheck`: TypeScript checks.
 - `npm run build`: exports static pages to `out/`.
 - `npm start`: serves the static export on http://127.0.0.1:3000.
+
+## Guides and editorial maintenance
+
+Six English guides live under `/guides/[slug]/`, with Chinese hub summaries. Article bodies explicitly retain English language markup when the display language changes. Edit `src/lib/guides.ts` for reviewed content, sources, dates and related links. Update editorial dates only when content changes, not on every build. The configured sitemap now contains 16 substantive URLs.
+
+`node scripts/check-export.mjs` validates all exported public pages, metadata, structured data, internal links and sitemap alignment. Run it with the same `NEXT_PUBLIC_SITE_URL` used to build.
 
 ## Cloudflare Pages preparation
 

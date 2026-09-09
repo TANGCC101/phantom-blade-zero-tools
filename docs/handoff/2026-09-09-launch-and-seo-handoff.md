@@ -5,6 +5,8 @@
 **当前线上地址：** https://phantom-blade-zero-tools.pages.dev/  
 **GitHub：** https://github.com/TANGCC101/phantom-blade-zero-tools
 
+> 后续进展（同日）：本交接中的“稳健内容积累”首批开发已实施，详见 `docs/verification/2026-09-09-seo-content.md`。新增六篇英文指南及中文导读，sitemap 从 10 个扩展为 16 个 URL。下文保留原始交接状态；不要重复开发本批内容。发布和外部核验结果以验收文档为准。
+
 ## 1. 当前状态：已经上线
 
 Cloudflare Pages 已成功部署，生产分支为 `main`。线上首页、`robots.txt` 和 `sitemap.xml` 均已实测返回 HTTP 200。
