@@ -25,7 +25,9 @@
 - `npm run typecheck`：通过。
 - `NEXT_PUBLIC_SITE_URL=https://phantom-blade-zero-tools.pages.dev npm run build`：通过，21 个静态页面生成步骤完成。
 - `node scripts/check-export.mjs`：通过；确认 16 个 HTML 页面、六篇实质指南、唯一 metadata、内部链接、四类 JSON-LD 与生产索引策略。
-- `node scripts/guide-language-smoke.cjs`：通过全部 90 个文章语言组合，并覆盖完整段落、来源 URL/标题、结构化数据、指南中心与首页卡片、语言偏好刷新、快速切换和移动端布局。
+- `node scripts/guide-language-smoke.cjs`：本地静态导出与正式域名均通过全部 90 个文章语言组合，并覆盖完整段落、来源 URL/标题、结构化数据、指南中心与首页卡片、语言偏好刷新、快速切换和移动端布局。
+
+生产代码提交 `2dacdac` 推送至 `main` 后，Cloudflare Pages 已返回新文章脚本；随后直接针对 `https://phantom-blade-zero-tools.pages.dev` 重跑上述浏览器验收并通过。
 
 ## 内容完整性检查
 

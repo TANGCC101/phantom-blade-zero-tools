@@ -9,4 +9,4 @@
 - [x] Implement src/lib/guide-i18n.ts and a client reading hook; keep fast switches safe by checking the active locale before rendering loaded text.
 - [x] Add GuideArticle and GuideCards client components, localize RelatedGuides, simplify server routes to retain metadata and static params, and remove obsolete English-only notices.
 - [x] Verify every dictionary key and numeric facts; run all existing checks and browser language switching where available. Review translation accuracy and async behavior.
-- [ ] Update README/handoff/verification, push through the existing release process, verify the actual public bundle and pages. Record any unperformed browser checks explicitly.
+- [x] Update README/handoff/verification, push through the existing release process, verify the actual public bundle and pages. Record any unperformed browser checks explicitly.
