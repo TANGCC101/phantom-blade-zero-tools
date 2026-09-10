@@ -1,7 +1,7 @@
 import {combatSource,bosses} from './data';
 
 export type GuideSource={sourceTitle:string;sourceUrl:string;lastUpdated:string;kind:'Official / Pre-release'|'Community / Pre-release'|'Project documentation'};
-export type Guide={slug:string;title:string;description:string;zhTitle:string;zhSummary:string;lastUpdated:string;limitation:string;sources:GuideSource[];sections:{id:string;title:string;paragraphs:string[]}[];related:{name:string;href:string}[]};
+export type Guide={slug:string;title:string;description:string;lastUpdated:string;limitation:string;sources:GuideSource[];sections:{id:string;title:string;paragraphs:string[]}[];related:{name:string;href:string}[]};
 const updated='2026-09-09';
 const revision='1947c51';
 const project=(path:string,sourceTitle:string):GuideSource=>({sourceTitle,sourceUrl:`https://github.com/TANGCC101/phantom-blade-zero-tools/blob/${revision}/${path}`,lastUpdated:updated,kind:'Project documentation'});
@@ -14,7 +14,7 @@ export const guides:Guide[]=[
  {
   slug:'combat-system-overview',title:'Phantom Blade Zero combat systems: a pre-release overview',
   description:'Understand the official weapon-system preview, separate announcements from unknowns, and turn combat ideas into useful planning notes.',
-  zhTitle:'战斗系统概览',zhSummary:'梳理官方预发行战斗资料，并把已知系统与待确认细节分开。正文为英文。',lastUpdated:updated,
+  lastUpdated:updated,
   limitation:'Pre-release overview, not a combat tutorial for the released game. Exact controls, damage, compatibility and encounter tactics are outside this guide.',
   sources:[combat,policy,planner],
   sections:[
@@ -27,7 +27,7 @@ export const guides:Guide[]=[
  {
   slug:'phantom-edges',title:'What are Phantom Edges in Phantom Blade Zero?',
   description:'A sourced explanation of the secondary weapon family and how to record questions about it without inventing a final equipment catalog.',
-  zhTitle:'Phantom Edges 是什么',zhSummary:'解释副武器家族的含义、资料边界和记录方法。正文为英文。',lastUpdated:updated,
+  lastUpdated:updated,
   limitation:'The name describes a pre-release weapon family. This page does not provide a complete equipment list, unlock guide or verified slot layout.',sources:[combat,policy,planner],
   sections:[
    {id:'definition',title:'A family name, not one weapon',paragraphs:['S-GAME uses Phantom Edges for secondary weapons in its August 2026 preview. The post lists 25 and discusses ranged and summon-assisted combat options. It does not supply a complete item-by-item catalog.']},
@@ -39,7 +39,7 @@ export const guides:Guide[]=[
  {
   slug:'build-planner',title:'How to use the Phantom Blade Zero build planner',
   description:'Save a combination locally, export and import JSON backups, and preview shared builds without overwriting your existing notes.',
-  zhTitle:'配装规划器使用指南',zhSummary:'了解本地保存、JSON 备份、导入替换和分享预览。正文为英文。',lastUpdated:updated,
+  lastUpdated:updated,
   limitation:'Tool instructions checked against PBZ Tools V1. Pre-release note fields are not verified equipment slots, and the planner does not rank builds.',sources:[planner,project('src/lib/planner.ts','PBZ Tools — backup validation and share encoding'),policy],
   sections:[
    {id:'create',title:'1. Create and save a combination',paragraphs:['Open Build Planner and enter a Build name. Weapon note, Secondary note, Accessory note and Strategy notes are places for your own writing. Choose Save combination and look for the saved-on-device confirmation and a new card in Your builds.','Use as template loads an existing card into the form. Saving from that form creates a new copy; it does not edit the original card. Give the copy a recognizable name so you can tell an experiment from the earlier version.']},
@@ -51,7 +51,7 @@ export const guides:Guide[]=[
  {
   slug:'data-reliability',title:'How to read Phantom Blade Zero source and reliability labels',
   description:'Learn the difference between Official and Community sources, Pre-release and Verified stages, and editorial update dates on PBZ Tools.',
-  zhTitle:'发售前资料可信度说明',zhSummary:'分清来源身份、资料阶段与更新时间，避免把官方预告当成正式版验证。正文为英文。',lastUpdated:updated,
+  lastUpdated:updated,
   limitation:'This is the independent site’s editorial policy. All current game reference entries remain Pre-release; this policy is not an endorsement by S-GAME.',sources:[policy,project('app/about/page.tsx','PBZ Tools — sourcing and privacy policy')],
   sections:[
    {id:'source',title:'First ask who published the information',paragraphs:['Official identifies developer or platform publications. Community covers independent press and player reports. These labels describe the source category, not a numerical confidence score. A detailed press observation can be useful while still being labeled Community.','Project documentation is a separate label on these guides. It supports statements about how this website saves, imports or displays your notes. It is not an official game source and should not be cited as proof of an in-game mechanic.']},
@@ -63,7 +63,7 @@ export const guides:Guide[]=[
  {
   slug:'boss-encounter-notes',title:'How to read Phantom Blade Zero boss encounter reports',
   description:'Understand the Seven Stars demo source, what the encounter entry does not establish, and how to keep your own observations separate.',
-  zhTitle:'首领资料阅读指南',zhSummary:'说明 Seven Stars 媒体试玩来源及其局限，不把试玩观察当作正式攻略。正文为英文。',lastUpdated:updated,
+  lastUpdated:updated,
   limitation:'Selective Pre-release reporting, not a complete boss roster or a final-release walkthrough. No attack timings, rewards or mandatory progression are verified here.',
   sources:[{sourceTitle:'Sarah Thwaites / TechRadar — Phantom Blade Zero is a martial arts RPG packed with genre-twisting mythology',sourceUrl:bosses[0].sourceUrl,lastUpdated:updated,kind:'Community / Pre-release'},policy,tracker],
   sections:[
@@ -76,7 +76,7 @@ export const guides:Guide[]=[
  {
   slug:'progress-tracker',title:'How to use the Phantom Blade Zero launch and progress tracker',
   description:'Prepare a local checklist, understand the scheduled launch transition, and back up personal boss progress without assuming a complete roster.',
-  zhTitle:'发售后如何记录进度',zhSummary:'了解倒计时切换、预发行历史保留和进度备份。正文为英文。',lastUpdated:updated,
+  lastUpdated:updated,
   limitation:'The tracker uses a scheduled time, not live regional availability. Current encounter references remain Pre-release and the progress list is selective.',
   sources:[tracker,project('src/lib/tracker.ts','PBZ Tools — tracker state and import validation'),{sourceTitle:'PlayStation Store (US) — Phantom Blade Zero',sourceUrl:'https://store.playstation.com/en-us/concept/10017620',lastUpdated:updated,kind:'Official / Pre-release'}],
   sections:[

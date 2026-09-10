@@ -46,7 +46,7 @@ Use Node.js 22 LTS or newer. Install the locked dependencies with `npm ci`.
 
 ## Guides and editorial maintenance
 
-Six English guides live under `/guides/[slug]/`, with Chinese hub summaries. Article bodies explicitly retain English language markup when the display language changes. Edit `src/lib/guides.ts` for reviewed content, sources, dates and related links. Update editorial dates only when content changes, not on every build. The configured sitemap now contains 16 substantive URLs.
+Six sourced guides live under `/guides/[slug]/`. The guide hub, article title, summary, limitations, full article body, source labels and related-guide cards follow the same 15-language display preference as the rest of the site. English remains the static HTML and metadata baseline so existing URLs, canonical tags and search indexing stay stable; client-side language changes do not create locale route variants. Reviewed English content, sources, dates and related links live in `src/lib/guides.ts`, while guide dictionaries live in `src/lib/guide-locales/`. Update editorial dates only when content changes, not on every build. Native-speaker editorial review is recommended as these translations mature. The configured sitemap contains 16 substantive URLs.
 
 `node scripts/check-export.mjs` validates all exported public pages, metadata, structured data, internal links and sitemap alignment. Run it with the same `NEXT_PUBLIC_SITE_URL` used to build.
 

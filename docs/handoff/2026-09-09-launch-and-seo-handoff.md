@@ -5,7 +5,7 @@
 **当前线上地址：** https://phantom-blade-zero-tools.pages.dev/  
 **GitHub：** https://github.com/TANGCC101/phantom-blade-zero-tools
 
-> 后续进展（同日）：本交接中的“稳健内容积累”首批开发已实施，详见 `docs/verification/2026-09-09-seo-content.md`。新增六篇英文指南及中文导读，sitemap 从 10 个扩展为 16 个 URL。下文保留原始交接状态；不要重复开发本批内容。发布和外部核验结果以验收文档为准。
+> 后续进展（2026-09-10）：本交接中的“稳健内容积累”首批开发已实施，详见 `docs/verification/2026-09-09-seo-content.md`。六篇指南现已随站点语言选择完整切换为 15 种显示语言，涵盖正文、来源区和相关推荐；实现与验证见 `docs/verification/2026-09-10-guide-languages.md`。sitemap 已从 10 个扩展为 16 个 URL。下文保留原始交接状态；不要重复开发本批内容。
 
 ## 1. 当前状态：已经上线
 
@@ -101,7 +101,7 @@ robots 已声明 sitemap，内容允许搜索引擎抓取。
 - 内容不得暗示与 S-GAME 官方合作或获得官方背书。
 - 不要为了 SEO 批量创建没有实质内容的空页面。
 
-## 6. 下一阶段：稳健内容积累（尚未开始实现）
+## 6. 下一阶段：稳健内容积累（首批已实现）
 
 用户已批准采用“稳健内容积累”方案，下一模型可以直接继续，不需要重新讨论方向。
 
@@ -136,7 +136,7 @@ robots 已声明 sitemap，内容允许搜索引擎抓取。
 
 1. 先写 SEO/内容设计文档和实现计划。
 2. 补页面 metadata、内部链接和结构化数据测试。
-3. 新增首批 4–6 篇实质指南内容，先做英文主内容，再补中文或语言词典入口。
+3. 继续新增有来源的实质指南时，同步补齐 15 种显示语言的文章词典；英文仍作为静态 HTML、metadata 和 canonical 的稳定基线。
 4. 运行 `npm test`、`npm run lint`、`npm run typecheck`、`npm run build`、`node scripts/check-export.mjs`。
 5. 推送到 `main`，确认 Cloudflare 新部署成功。
 6. 在 Google/Bing 检查 sitemap 和首页收录状态。
