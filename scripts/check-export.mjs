@@ -18,6 +18,16 @@ for(const page of pages){
  const body=html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/g,'');
  const visible=decode(body.replace(/<[^>]+>/g,' ')).replace(/\s+/g,' ');
  assert.match(html,/<html lang="en"/);assert.equal((body.match(/<h1\b/g)||[]).length,1,route+' h1');
+ if(route==='/zh/'){
+  assert.match(body,/lang="zh-CN"/);
+  assert.match(visible,/影之刃零/);
+  assert.match(visible,/配装规划/);
+  assert.ok([...body.matchAll(/<a\b[^>]*>/g)].map(m=>attrs(m[0])).some(x=>{
+   const path=new URL(x.href||'#','https://preview.example').pathname.replace(/\/?$/,'/');
+   return path==='/';
+  }),route+' missing English home link');
+ }
+
  const title=decode(html.match(/<title>(.*?)<\/title>/)?.[1]??'');
  assert.ok(title&&!titles.has(title),route+' missing/duplicate title');titles.add(title);
  const metas=[...html.matchAll(/<meta\b[^>]*>/g)].map(m=>attrs(m[0]));
@@ -59,6 +69,10 @@ for(const page of pages){
  }
 }
 for(const type of ['VideoGame','FAQPage','ItemList','BreadcrumbList'])assert.ok(types.has(type),type+' missing');
+assert.ok(routes.has('/zh/'),'missing Chinese landing /zh/');
+const homeHtml=await readFile('out/index.html','utf8');
+assert.ok(homeHtml.includes('/zh'),'English home missing Chinese landing link');
+
 const robots=await readFile('out/robots.txt','utf8');
 if(origin){
  assert.equal(sitemapUrls.length,routes.size);assert.equal(new Set(sitemapUrls).size,routes.size);
