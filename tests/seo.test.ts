@@ -14,6 +14,19 @@ describe('public URL policy',()=>{
   expect(meta.openGraph).toMatchObject({url:'https://example.org/guides/',images:[{url:'/opengraph-image.png'}]});
   expect(meta.twitter).toMatchObject({card:'summary_large_image',images:['/opengraph-image.png']});
  });
+ it('publishes hreflang alternates for the English and Chinese landings',async()=>{
+  vi.stubEnv('NEXT_PUBLIC_SITE_URL','https://example.org');vi.resetModules();
+  const {homeLanguageAlternates,pageMetadata}=await import('../src/lib/seo');
+  const en=pageMetadata('Home','/','English home',{languages:homeLanguageAlternates});
+  const zh=pageMetadata('中文首页','/zh','中文介绍',{languages:homeLanguageAlternates});
+  expect(en.alternates?.languages).toEqual({
+   en:'https://example.org/',
+   'zh-CN':'https://example.org/zh/',
+   'x-default':'https://example.org/',
+  });
+  expect(zh.alternates?.languages).toEqual(en.alternates?.languages);
+  expect(zh.openGraph).toMatchObject({locale:'zh_CN'});
+ });
  it('keeps unconfigured previews out of the index',async()=>{
   vi.stubEnv('NEXT_PUBLIC_SITE_URL','');vi.resetModules();
   const {pageMetadata}=await import('../src/lib/seo');
@@ -23,7 +36,8 @@ describe('public URL policy',()=>{
  it('moves all sitemap URLs to a replacement domain with stable editorial dates',async()=>{
   vi.stubEnv('NEXT_PUBLIC_SITE_URL','https://replacement.example');vi.resetModules();
   const entries=(await import('../app/sitemap')).default();
-  expect(entries.length).toBe(16);
+  expect(entries.length).toBe(17);
+  expect(entries.some(x=>x.url==='https://replacement.example/zh/')).toBe(true);
   for(const entry of entries){expect(entry.url).toMatch(/^https:\/\/replacement\.example\/.*\/$|^https:\/\/replacement\.example\/$/);expect(entry.lastModified).toBe('2026-09-09');}
  });
 });
