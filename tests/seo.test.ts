@@ -11,7 +11,8 @@ describe('public URL policy',()=>{
   const {pageMetadata}=await import('../src/lib/seo');
   const meta=pageMetadata('Guides','/guides','Read guides');
   expect(meta.alternates?.canonical).toBe('https://example.org/guides/');
-  expect(meta.openGraph).toMatchObject({url:'https://example.org/guides/'});
+  expect(meta.openGraph).toMatchObject({url:'https://example.org/guides/',images:[{url:'/opengraph-image.png'}]});
+  expect(meta.twitter).toMatchObject({card:'summary_large_image',images:['/opengraph-image.png']});
  });
  it('keeps unconfigured previews out of the index',async()=>{
   vi.stubEnv('NEXT_PUBLIC_SITE_URL','');vi.resetModules();
