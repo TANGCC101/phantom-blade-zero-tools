@@ -10,7 +10,22 @@ export const metadata:Metadata={
  metadataBase:siteUrl?new URL(siteUrl):undefined,
  robots:{index:!!siteUrl,follow:!!siteUrl},
  verification:{google:process.env.GOOGLE_SITE_VERIFICATION||undefined},
- openGraph:{title:'Phantom Blade Zero Tools',description:'Plan your combinations. Record your journey.',type:'website'},
+ openGraph:{
+  title:'Phantom Blade Zero Tools',
+  description:'Plan your combinations. Record your journey.',
+  type:'website',
+  images:[{url:'/opengraph-image.png',width:1200,height:630,alt:'Phantom Blade Zero Tools'}],
+ },
+ twitter:{
+  card:'summary_large_image',
+  title:'Phantom Blade Zero Tools',
+  description:'Plan your combinations. Record your journey.',
+  images:['/opengraph-image.png'],
+ },
+ icons:{
+  icon:[{url:'/favicon.ico'},{url:'/icon.png',type:'image/png'}],
+  apple:[{url:'/apple-icon.png'}],
+ },
 };
 export default function Layout({children}:{children:React.ReactNode}){
  const token=process.env.CLOUDFLARE_WEB_ANALYTICS_TOKEN;
